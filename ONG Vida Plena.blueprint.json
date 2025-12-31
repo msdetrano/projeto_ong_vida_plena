@@ -1,0 +1,600 @@
+{
+    "name": "ONG Vida Plena",
+    "flow": [
+        {
+            "id": 2,
+            "module": "airtable:TriggerWatchRecords",
+            "version": 3,
+            "parameters": {
+                "__IMTCONN__": 6804079,
+                "base": "appDtzhyPx8TFLEbh",
+                "useColumnId": false,
+                "table": "tblMqdNxNjHWa1z9a",
+                "config": {
+                    "triggerField": "Criado em",
+                    "labelField": "Beneficiário"
+                },
+                "maxRecords": 1,
+                "view": "",
+                "formula": ""
+            },
+            "mapper": {},
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 0
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "My Airtable OAuth connection (User ID: usrbcP95PWLr2zpmd)",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable3"
+                            }
+                        },
+                        "base": {
+                            "label": "Gestão de Eventos – ONG Vida Plena"
+                        },
+                        "table": {
+                            "label": "Inscrições"
+                        },
+                        "config": {
+                            "nested": {
+                                "triggerField": {
+                                    "label": "Criado em"
+                                },
+                                "labelField": {
+                                    "label": "Beneficiário"
+                                }
+                            }
+                        },
+                        "view": {
+                            "label": "Empty"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:airtable3,airtable2",
+                        "label": "Connection",
+                        "required": true
+                    },
+                    {
+                        "name": "base",
+                        "type": "select",
+                        "label": "Base",
+                        "required": true
+                    },
+                    {
+                        "name": "useColumnId",
+                        "type": "boolean",
+                        "label": "Use Column ID",
+                        "required": true
+                    },
+                    {
+                        "name": "table",
+                        "type": "select",
+                        "label": "Table",
+                        "required": true
+                    },
+                    {
+                        "name": "config",
+                        "type": "collection",
+                        "label": "Trigger configuration",
+                        "spec": [
+                            {
+                                "name": "triggerField",
+                                "type": "select",
+                                "label": "Trigger field",
+                                "required": true
+                            },
+                            {
+                                "name": "triggerField",
+                                "type": "hidden"
+                            },
+                            {
+                                "name": "labelField",
+                                "type": "select",
+                                "label": "Label field",
+                                "required": true
+                            }
+                        ]
+                    },
+                    {
+                        "name": "maxRecords",
+                        "type": "integer",
+                        "label": "Limit",
+                        "required": true
+                    },
+                    {
+                        "name": "view",
+                        "type": "select",
+                        "label": "View"
+                    },
+                    {
+                        "name": "formula",
+                        "type": "text",
+                        "label": "Formula"
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "ID"
+                    },
+                    {
+                        "name": "createdTime",
+                        "type": "date",
+                        "label": "Created Time"
+                    },
+                    {
+                        "name": "Name",
+                        "label": "Name",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Beneficiário",
+                        "label": "Beneficiário",
+                        "type": "array",
+                        "spec": {
+                            "label": "Record ID"
+                        }
+                    },
+                    {
+                        "name": "Evento",
+                        "label": "Evento",
+                        "type": "array",
+                        "spec": {
+                            "label": "Record ID"
+                        }
+                    },
+                    {
+                        "name": "Data da Inscrição",
+                        "label": "Data da Inscrição",
+                        "type": "date",
+                        "time": false
+                    },
+                    {
+                        "name": "Idade do Beneficiário",
+                        "label": "Idade do Beneficiário",
+                        "type": "array"
+                    },
+                    {
+                        "name": "Região do Beneficiário",
+                        "label": "Região do Beneficiário",
+                        "type": "array"
+                    },
+                    {
+                        "name": "Data do Evento",
+                        "label": "Data do Evento",
+                        "type": "array"
+                    },
+                    {
+                        "name": "Dias até o Evento",
+                        "label": "Dias até o Evento",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Inscrição Antecipada?",
+                        "label": "Inscrição Antecipada?",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Resumo Inteligente da Inscrição",
+                        "label": "Resumo Inteligente da Inscrição",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Categoria de Participação",
+                        "label": "Categoria de Participação",
+                        "type": "text"
+                    },
+                    {
+                        "name": "Criado em",
+                        "label": "Criado em",
+                        "type": "date"
+                    }
+                ],
+                "advanced": true
+            }
+        },
+        {
+            "id": 3,
+            "module": "airtable:ActionGetRecord",
+            "version": 3,
+            "parameters": {
+                "__IMTCONN__": 6804079
+            },
+            "mapper": {
+                "id": "{{2.`Beneficiário`}}",
+                "base": "appDtzhyPx8TFLEbh",
+                "table": "tblMwpjjRwjyaCKB8",
+                "useColumnId": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "base": {
+                            "mode": "chose",
+                            "label": "Gestão de Eventos – ONG Vida Plena"
+                        },
+                        "table": {
+                            "mode": "chose",
+                            "label": "Beneficiários"
+                        },
+                        "useColumnId": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "airtable3"
+                            },
+                            "label": "My Airtable OAuth connection (User ID: usrbcP95PWLr2zpmd)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:airtable3,airtable2",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "base",
+                        "type": "select",
+                        "label": "Base",
+                        "required": true
+                    },
+                    {
+                        "name": "useColumnId",
+                        "type": "boolean",
+                        "label": "Use Column ID",
+                        "required": true
+                    },
+                    {
+                        "name": "table",
+                        "type": "select",
+                        "label": "Table",
+                        "required": true
+                    },
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "Record ID",
+                        "required": true
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "ID"
+                    },
+                    {
+                        "name": "createdTime",
+                        "type": "date",
+                        "label": "Created Time"
+                    },
+                    {
+                        "name": "Nome do Beneficiário",
+                        "type": "text",
+                        "label": "Nome do Beneficiário"
+                    },
+                    {
+                        "name": "Idade",
+                        "type": "number",
+                        "label": "Idade"
+                    },
+                    {
+                        "name": "Email do Beneficiário",
+                        "type": "text",
+                        "label": "Email do Beneficiário"
+                    },
+                    {
+                        "name": "Região",
+                        "type": "text",
+                        "label": "Região"
+                    },
+                    {
+                        "name": "Criado em",
+                        "time": false,
+                        "type": "date",
+                        "label": "Criado em"
+                    },
+                    {
+                        "name": "Qtd. de Inscrições",
+                        "type": "number",
+                        "label": "Qtd. de Inscrições"
+                    },
+                    {
+                        "name": "Inscrições",
+                        "spec": {
+                            "label": "Record ID"
+                        },
+                        "type": "array",
+                        "label": "Inscrições"
+                    },
+                    {
+                        "name": "Última Inscrição",
+                        "type": "array",
+                        "label": "Última Inscrição"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 4,
+            "module": "google-email:sendAnEmail",
+            "version": 4,
+            "parameters": {
+                "__IMTCONN__": 6564171
+            },
+            "mapper": {
+                "to": [
+                    "marcosdrjunior@gmail.com"
+                ],
+                "subject": "Confirmação de Inscrição – ONG Vida Plena",
+                "bodyType": "collection",
+                "contents": [
+                    {
+                        "text": "Olá {{3.`Nome do Beneficiário`}},\r\n\r\nSua inscrição no evento foi confirmada com sucesso.\r\n\r\nA ONG Vida Plena agradece sua participação.\r\n\r\nAtenciosamente,\r\nEquipe ONG Vida Plena\r\n",
+                        "image": {}
+                    }
+                ]
+            },
+            "metadata": {
+                "designer": {
+                    "x": 600,
+                    "y": 0
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "My Gmail connection (marcosdrjunior@gmail.com)",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "google-email"
+                            }
+                        }
+                    },
+                    "expect": {
+                        "to": {
+                            "mode": "chose",
+                            "items": [
+                                null
+                            ]
+                        },
+                        "bodyType": {
+                            "label": "Collection of contents (text, images, etc.)"
+                        },
+                        "attachments": {
+                            "mode": "chose"
+                        },
+                        "from": {
+                            "mode": "chose"
+                        },
+                        "cc": {
+                            "mode": "chose"
+                        },
+                        "bcc": {
+                            "mode": "chose"
+                        },
+                        "emailHeaders": {
+                            "mode": "chose"
+                        },
+                        "contents": {
+                            "mode": "chose",
+                            "items": [
+                                null
+                            ]
+                        },
+                        "signature": {
+                            "mode": "chose"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:google-email",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "to",
+                        "type": "array",
+                        "label": "To",
+                        "required": true,
+                        "spec": {
+                            "type": "email",
+                            "label": "Recipient email address",
+                            "required": true,
+                            "validate": true,
+                            "name": "value"
+                        }
+                    },
+                    {
+                        "name": "subject",
+                        "type": "text",
+                        "label": "Subject"
+                    },
+                    {
+                        "name": "bodyType",
+                        "type": "select",
+                        "label": "Body type",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "rawHtml",
+                                "collection"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "attachments",
+                        "type": "array",
+                        "label": "Attachments",
+                        "spec": {
+                            "spec": [
+                                {
+                                    "name": "filename",
+                                    "type": "filename",
+                                    "label": "File name",
+                                    "required": true,
+                                    "semantic": "file:name"
+                                },
+                                {
+                                    "name": "data",
+                                    "type": "buffer",
+                                    "label": "Data",
+                                    "required": true,
+                                    "semantic": "file:data"
+                                }
+                            ],
+                            "type": "collection",
+                            "label": "Attachment",
+                            "name": "value"
+                        }
+                    },
+                    {
+                        "name": "from",
+                        "type": "select",
+                        "label": "From"
+                    },
+                    {
+                        "name": "cc",
+                        "type": "array",
+                        "label": "CC recipients",
+                        "spec": {
+                            "type": "email",
+                            "label": "Recipient email address",
+                            "required": true,
+                            "name": "value"
+                        }
+                    },
+                    {
+                        "name": "bcc",
+                        "type": "array",
+                        "label": "BCC recipients",
+                        "spec": {
+                            "type": "email",
+                            "label": "Recipient email address",
+                            "required": true,
+                            "name": "value"
+                        }
+                    },
+                    {
+                        "name": "emailHeaders",
+                        "type": "array",
+                        "label": "Additional email headers",
+                        "spec": {
+                            "spec": [
+                                {
+                                    "name": "key",
+                                    "type": "text",
+                                    "label": "Key",
+                                    "required": true
+                                },
+                                {
+                                    "name": "value",
+                                    "type": "text",
+                                    "label": "Value"
+                                }
+                            ],
+                            "type": "collection",
+                            "label": "Email header",
+                            "name": "value"
+                        }
+                    },
+                    {
+                        "name": "contents",
+                        "type": "array",
+                        "label": "Body contents",
+                        "spec": {
+                            "spec": [
+                                {
+                                    "name": "text",
+                                    "type": "text",
+                                    "label": "Text"
+                                },
+                                {
+                                    "name": "image",
+                                    "spec": [
+                                        {
+                                            "name": "filename",
+                                            "type": "filename",
+                                            "label": "File name",
+                                            "semantic": "file:name"
+                                        },
+                                        {
+                                            "name": "data",
+                                            "type": "buffer",
+                                            "label": "Data",
+                                            "semantic": "file:data"
+                                        },
+                                        {
+                                            "name": "width",
+                                            "type": "uinteger",
+                                            "label": "Width"
+                                        },
+                                        {
+                                            "name": "height",
+                                            "type": "uinteger",
+                                            "label": "Height"
+                                        }
+                                    ],
+                                    "type": "collection",
+                                    "label": "Image"
+                                }
+                            ],
+                            "type": "collection",
+                            "label": "Content",
+                            "name": "value"
+                        }
+                    },
+                    {
+                        "name": "signature",
+                        "type": "select",
+                        "label": "Signature content"
+                    }
+                ]
+            }
+        }
+    ],
+    "metadata": {
+        "instant": false,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "us2.make.com",
+        "notes": []
+    }
+}
